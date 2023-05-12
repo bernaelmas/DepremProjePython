@@ -1,12 +1,11 @@
-adminKullanici = ["bernaelms@gmail.com"]
-adminSifre = ["789456123"]
+admin = {"kullaniciAdi": "bernaelms@gmail.com", "sifre": "789456123"}
 kullaniciListe = []
 parolaListe = []
-menu = """***Sisteme Hoşgeldiniz***
-1-Sisteme Üye Ol\n2-Sisteme Giriş Yap\n3-Şifremi Unuttum\n4-Sistemden Çık\n5-Admin Girişi"""
+menuTuple = ("""***Sisteme Hoşgeldiniz*** 
+1-Sisteme Üye Ol\n2-Sisteme Giriş Yap\n3-Şifremi Unuttum\n4-Sistemden Çık\n5-Admin Girişi""")
 
 while True:
-    print(menu)
+    print(menuTuple)
     secim = int(input("Lütfen bir işlem seçiniz:"))
     if secim == 1:
         print("***Sisteme Üye Ol***")
@@ -14,6 +13,7 @@ while True:
         sifre = input("Şifrenizi giriniz:")
 
         if mail not in kullaniciListe:
+
             if mail and sifre != "":
                 kullaniciListe.append(mail)
                 parolaListe.append(sifre)
@@ -22,6 +22,7 @@ while True:
                 print("Mail veya Şifre Boş!")
         else:
             print("Kullanıcı Daha Önceden Üye Oldu!")
+
     elif secim == 2:
         print("***Sisteme Giriş Yap***")
         mail = input("E-mail adresinizi giriniz:")
@@ -56,7 +57,7 @@ while True:
         kullaniciAdi = input("Kullanıcı Adınızı Giriniz:")
         sifre = input("Şifrenizi Giriniz:")
 
-        if kullaniciAdi == adminKullanici[0] and sifre == adminSifre[0]:
+        if kullaniciAdi == admin["kullaniciAdi"] and sifre == admin["sifre"]:
             print("Admin Girişi Başarılı.")
         else:
             print("Yanlış Kullanıcı Adı veya Şifre Girdiniz!")
